@@ -4,8 +4,8 @@
 //Inizializzo AWS
 AWS.config.update({
   	region: "eu-west-1",
-	accessKeyId: "AKIAIG67KI2P4QX6PPIA", 
-	secretAccessKey: "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",
+	accessKeyId: "", 
+	secretAccessKey: "",
 });
 
 const lambda = new AWS.Lambda();

@@ -12,14 +12,6 @@ const lambda = new AWS.Lambda();
 
 //***** DEFINIZIONE FUNZIONI *****	
 
-
-function guid() {
-	function s4() {
-		return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-	}
-	return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-}
-
 function previewFiles() {
 
 	var preview = document.querySelector('#preview');
@@ -58,7 +50,7 @@ function doRecognition(b64Image){
 		FunctionName: 'Rekognition_job',
 		InvocationType: 'RequestResponse',
 		LogType: 'Tail',
-		Payload: '{ "key" : "' + guid() + '.jpg", "body" : "' + b64Image + '" }'
+		Payload: '{ "body" : "' + b64Image + '" }'
 	};
 
 	lambda.invoke(params, function(err, data) {

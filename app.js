@@ -3,7 +3,7 @@
 //***** INIZIALIZZAZIONI *****
 //Inizializzo AWS
 AWS.config.update({
-  	region: "eu-west-1",
+  	region: "",
 	accessKeyId: "", 
 	secretAccessKey: "",
 });
@@ -31,7 +31,7 @@ function previewFiles() {
 				preview.appendChild( image );
 				doRecognition(this.result);
 			}, false);
-
+			
 			reader.readAsDataURL(file);
 		}
 
@@ -124,7 +124,6 @@ function doRecognition(b64Image){
 				strHTML = strHTML + '<br>' + (Math.round(out.Emotions[i].Confidence * 100) / 100) + '% ' + out.Emotions[i].Type;
 			strHTML = strHTML + '</p>';
 		}
-		
 		
 		//Publish output
 		document.getElementById("content").innerHTML = strHTML;
